@@ -18,7 +18,7 @@ tableextension 123456700 CSD_ResourceExt extends Resource
             OptionMembers = "Internal", "External";
             OptionCaption = 'Internal,External';
         }
-        field(123456702; CSD_MAximum; Integer)
+        field(123456702; CSD_Maximum; Integer)
         {
             Caption = 'Maximum Participants';
         }
