@@ -21,9 +21,9 @@ table 123456700 "Seminar Setup"
             Caption = 'Seminar Registration Nos.';
             TableRelation = "No. Series";
         }
-        field(40;"Posted Seminar Reg Nos.";code[20])
+        field(40;"Posted Seminar Reg. Nos.";code[20])
         {
-            Caption = 'Seminar Registration Nos.';
+            Caption = 'Posted Seminar Registration Nos.';
             TableRelation = "No. Series";
         }
     }
