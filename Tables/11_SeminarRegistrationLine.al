@@ -41,7 +41,7 @@ table 123456711 "Seminar Registration Line"
                 ContactBusinessRelation.SetRange("No.","Bill-to Customer No.");
                 if ContactBusinessRelation.FindFirst then begin
                   Contact.SetRange("Company No.",ContactBusinessRelation."Contact No.");
-                  if page.RunModal(page::"Contact List",Contact) = "Action"::LookupOK then 
+                  if page.RunModal(page::"Contact List",Contact) = Action::LookupOK then 
                     "Participant Contact No." := Contact."No.";
                 end;
 
