@@ -95,6 +95,7 @@ codeunit 123456799 InstallSeminar
         if Resource.Insert then;
         Resource."No.":='ROOM 01';
         Resource.Name:='Room 01';
+        Resource."CSD_Quantity Per Day":=7;
         Resource.Type:=Resource.Type::Machine;
         if Resource.Insert then;
     end;

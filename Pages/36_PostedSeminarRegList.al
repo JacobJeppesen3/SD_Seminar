@@ -71,7 +71,7 @@ page 123456736 "Posted Seminar Reg. List"
                     Image = Comment;
                     RunObject = Page "Seminar Comment List";
                     RunPageLink = "No."=Field("No.");
-                    RunPageView = where("Table Name"=const("Posted Seminar Reg. Header"));
+                    RunPageView = where("Table Name"=const("Posted Seminar Regisstration Header"));
                 }
                 action("&Charges")
                 {

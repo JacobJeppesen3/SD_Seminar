@@ -5,9 +5,10 @@ table 123456710 "Seminar Registration Header"
     //     - Created new table
     //   Chapter 8 - Lab 2-3
     //     - Added LookupId and DrillDownPageId
+    //   Chapter 9 - Lab 1-1
+    //     - Added Field "No. Printed"
     Caption = 'Seminar Registration Header';
-    LookupPageId="Posted Seminar Reg. List";
-    DrillDownPageId="Posted Seminar Reg. List";
+   
 
     Fields
     {
@@ -231,7 +232,7 @@ table 123456710 "Seminar Registration Header"
         Field(22; Comment; Boolean)
         {
             Caption = 'Comment';
-            CalcFormula = Exist ("Seminar Comment Line" where ("Table Name" = const ("Seminar Registration header"),
+            CalcFormula = Exist ("Seminar Comment Line" where ("Table Name" = const ("Seminar Registration Header"),
                                                               "No." = Field ("No.")));
             Editable = false;
             FieldClass = FlowField;
@@ -290,6 +291,11 @@ table 123456710 "Seminar Registration Header"
         Field(28; "Posting No."; Code[20])
         {
             Caption = 'Posting No.';
+        }
+        field(40;"No. Printed";Integer)
+        {
+            Caption='No. Printed';
+            Editable=false;
         }
     }
 
