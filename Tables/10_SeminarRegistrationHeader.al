@@ -131,17 +131,17 @@ table 123456710 "Seminar Registration Header"
                     "Room Country/Reg. Code" := SeminarRoom."Country/Region Code";
 
                     if(CurrFieldNo <> 0) then begin
-                        if(SeminarRoom."CSD_Maximum Participants" <> 0) and
-                           (SeminarRoom."CSD_Maximum Participants" < "Maximum Participants")
+                        if(SeminarRoom."CSD_Maximum" <> 0) and
+                           (SeminarRoom."CSD_Maximum" < "Maximum Participants")
                         then begin
                             if Confirm(Text004, true,
                                "Maximum Participants",
-                               SeminarRoom."CSD_Maximum Participants",
+                               SeminarRoom."CSD_Maximum",
                                FieldCaption("Maximum Participants"),
                                "Maximum Participants",
-                               SeminarRoom."CSD_Maximum Participants")
+                               SeminarRoom."CSD_Maximum")
                           then
-                                "Maximum Participants" := SeminarRoom."CSD_Maximum Participants";
+                                "Maximum Participants" := SeminarRoom."CSD_Maximum";
                         end;
                     end;
                 end;
@@ -228,7 +228,7 @@ table 123456710 "Seminar Registration Header"
         Field(22; Comment; Boolean)
         {
             Caption = 'Comment';
-            CalcFormula = Exist ("Seminar Comment Line" where ("Table Name" = const ("Seminar Registration"),
+            CalcFormula = Exist ("Seminar Comment Line" where ("Table Name" = const ("Seminar Registration Header"),
                                                               "No." = Field ("No.")));
             Editable = false;
             FieldClass = FlowField;
@@ -339,7 +339,7 @@ table 123456710 "Seminar Registration Header"
             ERROR(Text006, SeminarCharge.TableCaption);
 
         SeminarCommentLine.Reset;
-        SeminarCommentLine.SetRange("Table Name", SeminarCommentLine."Table Name"::"Seminar Registration");
+        SeminarCommentLine.SetRange("Table Name", SeminarCommentLine."Table Name"::"Seminar Registration Header");
         SeminarCommentLine.SetRange("No.", "No.");
         SeminarCommentLine.deleteALL;
     end;

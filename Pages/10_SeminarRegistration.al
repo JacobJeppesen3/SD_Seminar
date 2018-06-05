@@ -139,7 +139,7 @@ page 123456710 "Seminar Registration"
                     Image = Comment;
                     RunObject = Page 123456706;
                     RunPageLink = "No." = Field ("No.");
-                    RunPageView = where ("Table Name" = const ("Seminar Registration"));
+                    RunPageView = where ("Table Name" = const ("Seminar Registration Header"));
                 }
                 action("&Charges")
                 {
