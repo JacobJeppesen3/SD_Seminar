@@ -71,7 +71,7 @@ page 123456736 "Posted Seminar Reg. List"
                     Image = Comment;
                     RunObject = Page "Seminar Comment List";
                     RunPageLink = "No."=Field("No.");
-                    RunPageView = where("Table Name"=const("Posted Seminar Regisstration Header"));
+                    RunPageView = where("Table Name"=const("Posted Seminar Reg. Header"));
                 }
                 action("&Charges")
                 {
@@ -81,6 +81,24 @@ page 123456736 "Posted Seminar Reg. List"
                     RunPageLink = "Document No."=Field("No.");
                 }
             }
+        }
+        area(Processing)
+        {
+            action("&Navigate")
+            {
+                Caption='&Navigate';
+                Image=Navigate;
+                Promoted=true;
+                PromotedCategory=Process;
+
+                trigger OnAction();
+                var
+                    Navigate : page Navigate;
+                begin
+                    Navigate.SetDoc("Posting Date","No.");
+                    Navigate.RUN;
+                end;
+            }        
         }
     }
 }

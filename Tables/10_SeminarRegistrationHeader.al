@@ -3,8 +3,11 @@ table 123456710 "Seminar Registration Header"
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 6 - Lab 1-3 & Lab 1-4
     //     - Created new table
+    //   Chapter 8 - Lab 2-3
+    //     - Added LookupId and DrillDownPageId
     Caption = 'Seminar Registration Header';
-
+    LookupPageId="Posted Seminar Reg. List";
+    DrillDownPageId="Posted Seminar Reg. List";
 
     Fields
     {
@@ -228,7 +231,7 @@ table 123456710 "Seminar Registration Header"
         Field(22; Comment; Boolean)
         {
             Caption = 'Comment';
-            CalcFormula = Exist ("Seminar Comment Line" where ("Table Name" = const ("Seminar Registration Header"),
+            CalcFormula = Exist ("Seminar Comment Line" where ("Table Name" = const ("Seminar Registration header"),
                                                               "No." = Field ("No.")));
             Editable = false;
             FieldClass = FlowField;
@@ -352,6 +355,11 @@ table 123456710 "Seminar Registration Header"
             NoSeriesMgt.InitSeries(SeminarSetup."Seminar Registration Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
         initrecord;
+        // >> Lab 8-1
+        if GetFilter("Seminar No.") <>'' then
+            if GetRangeMin("Seminar No.") = GetRangeMax("Seminar No.") then
+                Validate("Seminar No.",GetRangeMin("Seminar No."));
+        // << Lab 8-1
     end;
 
     local procedure InitRecord();
